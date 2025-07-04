@@ -197,7 +197,6 @@ public class BrowseBooksController {
             System.out.println("	Lanugage: " + book.getLanguage());
 			return true;
 		}
-		
 		return false;
 	}
 	

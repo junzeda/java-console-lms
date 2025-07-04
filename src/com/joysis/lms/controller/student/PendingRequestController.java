@@ -46,6 +46,7 @@ public class PendingRequestController {
 			System.out.printf("%-110s |\n","	");
 			System.out.printf("%-110s |\n","	Transaction ID: " + borrow.getBorrowId());
 			System.out.printf("%-110s |\n","	Requested At: " + borrow.getRequestedAt());
+			System.out.printf("%-110s |\n","	Book ID: " + book.getBookId());
 			System.out.printf("%-110s |\n","	Book Title: " + book.getTitle());
 			System.out.printf("%-110s |\n","	Author: " + author.getFirstName() + " " + author.getLastName());
 			System.out.printf("%-110s |\n","	Category: " + category.getCategoryName());

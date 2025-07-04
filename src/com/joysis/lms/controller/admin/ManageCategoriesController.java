@@ -54,12 +54,12 @@ public class ManageCategoriesController {
 		}
 
 		System.out.println("\n================================== List of Category ==================================");
-		System.out.printf("%-5s %-15s %-25s %-25s%n", "ID", "Category", "Created At", "Updated At");
+		System.out.printf("%-10s %-25s %-25s %-25s%n", "| ID", "| Category", "| Created At", "| Updated At");
 		System.out.println("--------------------------------------------------------------------------------------");
 
 		for (Category category : categories) {
-			System.out.printf("%-5s %-15s %-25s %-25s%n", category.getBookCategoryId(), category.getCategoryName(),
-					category.getCreatedAt(), category.getUpdatedAt());
+			System.out.printf("%-10s %-25s %-25s %-25s%n","| "+ category.getBookCategoryId(),"| "+ category.getCategoryName(),
+					"| "+category.getCreatedAt(), "| "+category.getUpdatedAt());
 		}
 		System.out.println("--------------------------------------------------------------------------------------");
 		System.out.println("\n======================================================================================");

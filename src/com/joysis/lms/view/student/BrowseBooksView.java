@@ -23,9 +23,6 @@ public class BrowseBooksView {
 	}
 	
 	
-//  System.out.println("-----------------------------------------------------------------------------------------------------------------------");
-//  System.out.println("\n"+ConsoleStyles.colorize("Select Account type", ConsoleStyles.YELLOW, ConsoleStyles.BOLD)+" ---------------------------------------------------------------------------------------------------");
-
 	public void showBrowseBooksMenu() {
 		while (true) {
 
