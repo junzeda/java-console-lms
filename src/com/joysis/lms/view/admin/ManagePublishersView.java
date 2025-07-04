@@ -4,6 +4,7 @@ import java.util.Scanner;
 
 import com.joysis.lms.controller.admin.ManagePublishersController;
 import com.joysis.lms.model.Publisher;
+import com.joysis.lms.util.ConsoleStyles;
 
 public class ManagePublishersView {
 	private final Scanner scanner;
@@ -14,9 +15,14 @@ public class ManagePublishersView {
 		this.publishersController = publishersController;
 	}
 	
+	
+
+    
+    
 	public void showPublishersMenu() {
         while (true) {
-        	System.out.println("\nManage Publishers --------------------------------");
+        	System.out.println("\n"+ConsoleStyles.colorize("Admin Homepage / Manage Publishers", ConsoleStyles.YELLOW, ConsoleStyles.BOLD) 
+            +" --------------------------------------------------------------------------------------\n");
 			System.out.printf("%-41s |\n","	");
             System.out.printf("%-41s |\n","	[1] Show All Publishers");
             System.out.printf("%-41s |\n","	[2] Add Publisher");
@@ -25,7 +31,8 @@ public class ManagePublishersView {
             System.out.printf("%-41s |\n","	");
             System.out.printf("%-41s |\n","	[0] <- Back to Homepage");
             System.out.printf("%-41s |\n","	");
-            System.out.println("--------------------------------------------------");
+            System.out.println("\n-----------------------------------------------------------------------------------------------------------------------\n");
+            
             
 
             System.out.print("	Enter your choice: ");
@@ -47,7 +54,8 @@ public class ManagePublishersView {
     }
 	
 	public void promptAddPublisher() {
-    	System.out.println("\nAdd Publisher ------------------------------------\n");
+		System.out.println("\n"+ConsoleStyles.colorize("Admin Homepage / Manage Publishers / Add", ConsoleStyles.YELLOW, ConsoleStyles.BOLD) 
+        +" --------------------------------------------------------------------------------\n");
         System.out.print("	Name: ");
         String name = scanner.nextLine();
         System.out.print("	Email: ");
@@ -56,14 +64,16 @@ public class ManagePublishersView {
         String contactNumber = scanner.nextLine();
         System.out.print("	Address: ");
         String address = scanner.nextLine();
-        System.out.println("\n--------------------------------------------------");
+        System.out.println("\n-----------------------------------------------------------------------------------------------------------------------\n");
+        
         
         publishersController.addPublisher(name, email, contactNumber, address);
     	
     }
     
     public void promptUpdatePublisher() {
-    	System.out.println("\nUpdate Publisher ---------------------------------\n");
+    	System.out.println("\n"+ConsoleStyles.colorize("Admin Homepage / Manage Publishers / Update", ConsoleStyles.YELLOW, ConsoleStyles.BOLD) 
+        +" -----------------------------------------------------------------------------\n");
     	System.out.print("	Enter Publisher ID to update: ");
     	if(!scanner.hasNextInt()) {
     		System.out.println("	Invalid input. Please try again.");
@@ -87,22 +97,26 @@ public class ManagePublishersView {
         String contactNumber = scanner.nextLine().trim();
         System.out.print("	Address [ " + publisher.getAddress() + " ]: ");
         String address = scanner.nextLine().trim();
-        System.out.println("\n--------------------------------------------------");
+        System.out.println("\n-----------------------------------------------------------------------------------------------------------------------\n");
         
+        
+  
         publishersController.updatePublisher(publisherId, name, email, contactNumber, address);
     	
     	
     }
     
     public void promptArchivePublisherById() {
-    	System.out.println("\nDelete Publisher ---------------------------------\n");
+    	System.out.println("\n"+ConsoleStyles.colorize("Admin Homepage / Manage Publishers / Delete", ConsoleStyles.YELLOW, ConsoleStyles.BOLD) 
+        +" -----------------------------------------------------------------------------\n");
         System.out.print("	Enter Publisher ID to delete: ");
         int publisherId = scanner.nextInt();
         scanner.nextLine();
         publishersController.findPublisherById(publisherId);
         System.out.print("	Are you sure your want to delete this Publisher? (yes/no): ");
         String input = scanner.nextLine().toLowerCase();
-        System.out.println("\n--------------------------------------------------");
+        System.out.println("\n-----------------------------------------------------------------------------------------------------------------------\n");
+        
         if (input.equals("yes") || input.equals("y")) {
             publishersController.archivePublisherById(publisherId);
         }else if(input.equals("no") || input.equals("n")){

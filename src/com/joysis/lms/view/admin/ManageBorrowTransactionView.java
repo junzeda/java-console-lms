@@ -3,6 +3,7 @@ package com.joysis.lms.view.admin;
 import java.util.Scanner;
 
 import com.joysis.lms.controller.admin.ManageBorrowTransactionController;
+import com.joysis.lms.util.ConsoleStyles;
 
 public class ManageBorrowTransactionView {
 	private final Scanner scanner;
@@ -13,19 +14,31 @@ public class ManageBorrowTransactionView {
 		this.borrowTransactionController = borrowTransactionController;
 	}
 	
+//	 System.out.println("\n"+ConsoleStyles.colorize("Admin Homepage / Manage Authors / Update", ConsoleStyles.YELLOW, ConsoleStyles.BOLD) +" ------------------------------------------------------------------------------\n");
+//   System.out.println("\n-----------------------------------------------------------------------------------------------------------------------\n");
+	
 	public void showBorrowTransactionMenu() {
         while (true) {
-        	System.out.println("\nManage Borrow Transaction -------------------------------------");
+        	System.out.println("\n"+ConsoleStyles.colorize("Admin Homepage / Manage Borrow Transaction", ConsoleStyles.YELLOW, ConsoleStyles.BOLD) 
+            +" ----------------------------------------------------------------------------\n");
 			System.out.printf("%-41s |\n","	");
-            System.out.printf("%-41s |\n","	[1] Pending Borrow Requests");
+            System.out.printf("%-41s |\n","	[1] Pending Requests");
             System.out.printf("%-41s |\n","	[2] Return Book");
-            System.out.printf("%-41s |\n","	[3] Incoming Due Date Return");
-            System.out.printf("%-41s |\n","	[4] Overdue Book Tracker");
+            System.out.printf("%-41s |\n","	[3] Incoming Due Date");
+            System.out.printf("%-41s |\n","	[4] Overdue");
             System.out.printf("%-41s |\n","	[5] Transaction History");
             System.out.printf("%-41s |\n","	");
             System.out.printf("%-41s |\n","	[0] <- Back to Homepage");
             System.out.printf("%-41s |\n","	");
-            System.out.println("--------------------------------------------------");
+            System.out.println("\n-----------------------------------------------------------------------------------------------------------------------\n");
+            
+            
+            
+//            System.out.println("\n"+ConsoleStyles.colorize("Admin Homepage / Manage Borrow Transaction / Incoming Due Date", ConsoleStyles.YELLOW, ConsoleStyles.BOLD) 
+//            +" --------------------------------------------------------\n");
+//            System.out.println("\n"+ConsoleStyles.colorize("Admin Homepage / Manage Borrow Transaction / Overdue", ConsoleStyles.YELLOW, ConsoleStyles.BOLD) 
+//            +" ------------------------------------------------------------------\n");
+            
             
 
             System.out.print("	Enter your choice: ");
@@ -47,7 +60,8 @@ public class ManageBorrowTransactionView {
     }
 	
 	public void promptPendingRequestId() {
-		System.out.println("\nManage Borrow Transaction / Pending Request -------------------------------------\n");
+		System.out.println("\n"+ConsoleStyles.colorize("Admin Homepage / Manage Borrow Transaction / Pending Request", ConsoleStyles.YELLOW, ConsoleStyles.BOLD) 
+        +" ----------------------------------------------------------\n");
 		boolean hasPending = borrowTransactionController.displayAllPendingRequest();
 		if(!hasPending) {
 			System.out.println("	No pending request.");
@@ -69,7 +83,7 @@ public class ManageBorrowTransactionView {
 		System.out.println();
 		System.out.print("	Accept Request? (yes/no): ");
         String input = scanner.nextLine().toLowerCase();
-        System.out.println("\n--------------------------------------------------");
+        System.out.println("-----------------------------------------------------------------------------------------------------------------------\n");
         if (input.equals("yes") || input.equals("y")) {
         	borrowTransactionController.acceptBorrowRequest(borrowBookId);
         }else if(input.equals("no") || input.equals("n")){
@@ -82,7 +96,8 @@ public class ManageBorrowTransactionView {
 	}
 	
 	public void promptPendingReturnId() {
-		System.out.println("\nManage Borrow Transaction / Pending Return -------------------------------------\n");
+		System.out.println("\n"+ConsoleStyles.colorize("Admin Homepage / Manage Borrow Transaction / Return Book", ConsoleStyles.YELLOW, ConsoleStyles.BOLD) 
+        +" --------------------------------------------------------------\n");
 		boolean hasPending = borrowTransactionController.displayAllToReturn();
 		if(!hasPending) {
 			System.out.println("	No pending return.");
@@ -136,11 +151,12 @@ public class ManageBorrowTransactionView {
             System.out.println("	Invalid input. Try again.");
         }
 
-        System.out.println("\n--------------------------------------------------");
+        System.out.println("-----------------------------------------------------------------------------------------------------------------------\n");
 	}
 	
 	public void searchStudentTransacHistory() {
-		System.out.println("\nManage Borrow Transaction / Search -------------------------------------\n");
+		System.out.println("\n"+ConsoleStyles.colorize("Admin Homepage / Manage Borrow Transaction / History", ConsoleStyles.YELLOW, ConsoleStyles.BOLD) 
+        +" ----------------------------------------------------------\n");
 		System.out.print("	Enter Student ID: ");
 		String studentId = scanner.nextLine();
 		

@@ -69,6 +69,8 @@ public class ManageAuthorsView {
     	
     }
     
+    
+    
     public void promptUpdateAuthor() {
     	System.out.println("\n"+ConsoleStyles.colorize("Admin Homepage / Manage Authors / Update", ConsoleStyles.YELLOW, ConsoleStyles.BOLD)
         +" ------------------------------------------------------------------------------\n");
